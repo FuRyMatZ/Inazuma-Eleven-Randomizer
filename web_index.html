@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec image de fond</title>
+    <link rel="stylesheet" href="web_styles.css">
+</head>
+<body>
+
+    <div class="separator"></div>
+
+    <p id="label-title">
+        <span>Random Draft Inazuma Eleven</span>
+    </p>
+
+    <div id="content">
+        <div id="selection">
+            <select id="combo-box1">
+                <!-- Options pour le premier combo box -->
+                <option value="optionIE1">Inazuma Eleven 1</option>
+                <option value="optionIE2">Inazuma Eleven 2</option>
+                <option value="optionIE3">Inazuma Eleven 3</option>
+                <option value="optionIEGO">Inazuma Eleven GO</option>
+                <option value="optionIEGOCS">Inazuma Eleven GO Chrono Stones</option>
+                <option value="optionIEGOGALAXY">Inazuma Eleven GO Galaxy</option>
+                <option value="optionIEARES">Inazuma Eleven Ares</option>
+                <option value="optionIEORION">Inazuma Eleven Orion</option>
+                <option value="optionIEALL">Inazuma Eleven ALL Character</option>
+                <!-- Ajoutez d'autres options au besoin -->
+            </select>
+
+            <select id="combo-box2">
+                <!-- Options pour le deuxième combo box -->
+                <option value="optionFOR">Formation</option>
+                <option value="optionGK">Gardien</option>
+                <option value="optionDF">Défenseur</option>
+                <option value="optionMF">Milieu</option>
+                <option value="optionFW">Attaquant</option>
+                <option value="optionCoach">Coach</option>
+                <!-- Ajoutez d'autres options au besoin -->
+            </select>
+        </div>
+
+        <div id="double-button">
+            <button id="start-button" class="select-button">Start Random Pick</button>
+        
+            <button id="refresh-button"></button>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- Template répété 5 fois -->
+    <div class="team-container">
+        <div class="team-template">
+            <div id="Team_Text_1" class="team-text">Team 1</div>
+            <img id="IMG_Charcter_1" src="Resource/character-placeholder.png" alt="Random Character Image">
+            <div id="Name_Text_1" class="name-text">Prénom Nom - Genre</div>
+            <button id="buttonSelected1" class="select-button">Select</button>
+        </div>
+    
+        <div class="team-template">
+            <div id="Team_Text_2" class="team-text">Team 2</div>
+            <img id="IMG_Charcter_2" src="Resource/character-placeholder.png" alt="Random Character Image">
+            <div id="Name_Text_2" class="name-text">Prénom Nom - Genre</div>
+            <button id="buttonSelected2" class="select-button">Select</button>
+        </div>
+    
+        <div class="team-template">
+            <div id="Team_Text_3" class="team-text">Team 3</div>
+            <img id="IMG_Charcter_3" src="Resource/character-placeholder.png" alt="Random Character Image">
+            <div id="Name_Text_3" class="name-text">Prénom Nom - Genre</div>
+            <button id="buttonSelected3" class="select-button">Select</button>
+        </div>
+    </div>
+    
+    <div  id="img_down_row" class="team-container"> 
+        <div class="team-template">
+            <div id="Team_Text_4" class="team-text">Team 4</div>
+            <img id="IMG_Charcter_4" src="Resource/character-placeholder.png" alt="Random Character Image">
+            <div id="Name_Text_4" class="name-text">Prénom Nom - Genre</div>
+            <button id="buttonSelected4" class="select-button">Select</button>
+        </div>
+    
+        <div class="team-template">
+            <div id="Team_Text_5" class="team-text">Team 5</div>
+            <img id="IMG_Charcter_5" src="Resource/character-placeholder.png" alt="Random Character Image">
+            <div id="Name_Text_5" class="name-text">Prénom Nom - Genre</div>
+            <button id="buttonSelected5" class="select-button">Select</button>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <p id="label-your-team">
+        <span>Your Team</span>
+    </p>
+
+    <div class="custom-elements">
+        <img id = "Your_Team_Formation" src="Resource/field.svg" alt="Field Image" style="max-width: 90px; max-height: 90px;">
+    
+        <div class="character-grid">
+            <!-- 8x2 grid de character-placeholder.png -->
+            <!-- L'image character-placeholder.png est répétée 16 fois pour créer une grille 8x2 -->
+            <!-- Vous pouvez ajuster le chemin et le style des images en fonction de vos besoins -->
+            <img id = "pic1_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic2_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic3_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic4_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic5_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic6_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic7_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic8_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic9_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic10_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic11_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic12_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic13_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic14_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic15_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+            <img id = "pic16_selected" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 50px; max-height: 50px;">
+        </div>
+    
+        <img id = "Your_Team_Coach" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 90px; max-height: 90px;">
+    </div>
+    
+    <div class="separator"></div>
+
+    <script src="web_script.js"></script>
+</body>
+</html>
