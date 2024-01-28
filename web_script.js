@@ -2,6 +2,7 @@ const Nb_Cycle = 4;
 const Countdown = 22;
 
 let SelectedPost
+let refresh = false;
 
 let Formation = ""
 let IE_1 = ""
@@ -12,6 +13,7 @@ let IE_GOCS = ""
 let IE_GOGALAXY = ""
 let IE_ARES = ""
 let IE_ORION = ""
+let IE_BETAVR = ""
 let IE_1_COACH = ""
 let IE_2_COACH = ""
 let IE_3_COACH = ""
@@ -183,13 +185,18 @@ const Team_directory = {
     "PFS": "Perfect Spark",
     "OdS": "Olé de Samba",
     "GQ": "Guardians of Queen",
-    "SO": "Shadow of Orion"
+    "SO": "Shadow of Orion",
+
+    "IAS": "Inazuma All Stars",
+    "JD": "Japan Dreams",
+    "AM": "Alia Masters"
 };
 
 
 async function init() {
-    if (combo2.value == "optionCoach" || combo2.value == "optionFOR"){
-    img_down_row.style.display = "none";}
+    if (combo2.value == "optionCoach" || combo2.value == "optionFOR" || combo.value == "optionIEBETAVR") {
+        img_down_row.style.display = "none";
+    }
 
     var buttonSelected1 = document.getElementById("buttonSelected1");
     var buttonSelected2 = document.getElementById("buttonSelected2");
@@ -221,6 +228,7 @@ async function init() {
     IE_GOGALAXY = data.IE_GOGALAXY;
     IE_ARES = data.IE_ARES;
     IE_ORION = data.IE_ORION;
+    IE_BETAVR = data.IE_betaVR;
     IE_1_COACH = data.IE_1_COACH;
     IE_2_COACH = data.IE_2_COACH;
     IE_3_COACH = data.IE_3_COACH;
@@ -231,7 +239,10 @@ async function init() {
     IE_ORION_COACH = data.IE_ORION_COACH;
     IE_ALL = data.IE_ALL;
     IE_ALL_COACH = data.IE_ALL_COACH;
-
+    
+    if (refresh = false){
+    console.log("refresh")
+    console.log(refresh)
     Object.values(IE_1).forEach(joueur => { Joueurs.push(joueur.Path); });
 
     Object.values(IE_1).forEach(joueur => {
@@ -248,10 +259,11 @@ async function init() {
             FW.Players.push(joueur);
         }
     });
-
+    }
 
     CurrentList["Formation"] = Formation;
     CurrentList["Coach"] = IE_1_COACH;
+
 
 
     //GK["Players"] = [];
@@ -297,6 +309,9 @@ combo.addEventListener("change", function () {
             break;
         case "optionIEALL":
             CurrentSaison = IE_ALL;
+            break;
+        case "optionIEBETAVR":
+            CurrentSaison = IE_BETAVR;
             break;
         //default:
         // Gérer d'autres options si nécessaire
@@ -353,9 +368,15 @@ function on_comboBox_type_changed(selectOpt) {
     console.log("")
     console.log(selectOpt)
     console.log("")
-    if (selected_previous_option === "optionFOR" || selected_previous_option === "optionCoach") {
+    if (selected_previous_option === "optionFOR" || selected_previous_option === "optionCoach" || selected_previous_option == "optionIEBETAVR") {
 
         img_down_row.style.display = "flex";
+    }
+
+    if (combo.value == "optionIEBETAVR") {
+
+        img_down_row.style.display = "none";
+        Status = true
     }
 
     if (selectedOption == "optionFOR") {
@@ -395,6 +416,9 @@ function on_comboBox_type_changed(selectOpt) {
                 case "optionIEALL":
                     CurrentList["Coach"] = IE_ALL_COACH;
                     break;
+                case "optionIEBETAVR":
+                    CurrentList["Coach"] = IE_BETAVR;
+                    break;
             }
             break;
 
@@ -419,6 +443,10 @@ function on_comboBox_type_changed(selectOpt) {
             break;
     }
     selected_previous_option = selectedOption
+    if (combo.value == "optionIEBETAVR") {
+        selected_previous_option = "optionIEBETAVR"
+    }
+
     console.log(CurrentList);
 }
 
@@ -600,7 +628,7 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
         var Genre = shuffledArray[index % Nb_item].Genre;
         var Team_name = Team_directory[shuffledArray[index % Nb_item].Team];
 
-        if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
             nbr_image_display = 3
         } else {
             nbr_image_display = 5
@@ -684,7 +712,7 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
             afficherImagesAvecIntervalle(shuffledArray, index + 1, TotalItems, Nb_item, team_template, Team_directory);
         }, delay_ms);
     } else {
-        if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
             nbr_image_display = 3
 
             team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
@@ -696,21 +724,21 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
             }
 
 
-            team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+1].Path;
-            team_template.bloc2.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+1].Nom;
+            team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Path;
+            team_template.bloc2.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom;
             if (combo2.value == "optionFOR") {
-                team_template.bloc2.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+1].Placement;
+                team_template.bloc2.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Placement;
             } else {
-                team_template.bloc2.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+1].Team];
+                team_template.bloc2.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Team];
             }
 
 
-            team_template.bloc3.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+2].Path;
-            team_template.bloc3.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+2].Nom;
+            team_template.bloc3.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Path;
+            team_template.bloc3.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom;
             if (combo2.value == "optionFOR") {
-                team_template.bloc3.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+2].Placement;
+                team_template.bloc3.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Placement;
             } else {
-                team_template.bloc3.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display+2].Team];
+                team_template.bloc3.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Team];
             }
 
 
@@ -771,75 +799,77 @@ buttonSelected1.addEventListener("click", function () {
     selectedCharacter(image_selected)
 
     let variableOffset
-    if(combo2.value == "optionFOR" || combo2.value == "optionCoach"){
-    variableOffset = 2 }else{ variableOffset = 0
+    if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        variableOffset = 2
+    } else {
+        variableOffset = 0
     }
 
-//    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
+    //    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
 
 
     switch (combo2.value) {
         case "optionFOR":
 
-            for (let object_pointeur in  CurrentList.Formation){
-            if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-                console.log("item deleted :", CurrentList.Formation[object_pointeur])
-                delete CurrentList.Formation[object_pointeur]
-                break
-            }
+            for (let object_pointeur in CurrentList.Formation) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    delete CurrentList.Formation[object_pointeur]
+                    break
+                }
             }
             break;
-    
+
         case "optionCoach":
 
-        for (let object_pointeur in  CurrentList.Coach){
-        if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-            console.log("item deleted :", CurrentList.Coach[object_pointeur])
-            delete CurrentList.Coach[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.Coach) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    delete CurrentList.Coach[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionGK":
 
-        for (let object_pointeur in  CurrentList.GK){
-        if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-            console.log("item deleted :", CurrentList.GK[object_pointeur])
-            delete CurrentList.GK[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.GK) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    delete CurrentList.GK[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionDF":
 
-        for (let object_pointeur in  CurrentList.DF){
-        if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-            console.log("item deleted :", CurrentList.DF[object_pointeur])
-            delete CurrentList.DF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.DF) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    delete CurrentList.DF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionMF":
 
-        for (let object_pointeur in  CurrentList.MF){
-        if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-            console.log("item deleted :", CurrentList.MF[object_pointeur])
-            delete CurrentList.MF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.MF) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    delete CurrentList.MF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionFW":
 
-        for (let object_pointeur in  CurrentList.FW){
-        if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset] ){
-            console.log("item deleted :", CurrentList.FW[object_pointeur])
-            delete CurrentList.FW[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.FW) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    delete CurrentList.FW[object_pointeur]
+                    break
+                }
+            }
+            break;
     }
 
 
@@ -899,75 +929,77 @@ buttonSelected2.addEventListener("click", function () {
     selectedCharacter(image_selected)
 
     let variableOffset
-    if(combo2.value == "optionFOR" || combo2.value == "optionCoach"){
-    variableOffset = 2 }else{ variableOffset = 0
+    if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        variableOffset = 2
+    } else {
+        variableOffset = 0
     }
 
-//    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
+    //    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
 
 
     switch (combo2.value) {
         case "optionFOR":
 
-            for (let object_pointeur in  CurrentList.Formation){
-            if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-                console.log("item deleted :", CurrentList.Formation[object_pointeur])
-                delete CurrentList.Formation[object_pointeur]
-                break
-            }
+            for (let object_pointeur in CurrentList.Formation) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    delete CurrentList.Formation[object_pointeur]
+                    break
+                }
             }
             break;
-    
+
         case "optionCoach":
 
-        for (let object_pointeur in  CurrentList.Coach){
-        if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-            console.log("item deleted :", CurrentList.Coach[object_pointeur])
-            delete CurrentList.Coach[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.Coach) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    delete CurrentList.Coach[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionGK":
 
-        for (let object_pointeur in  CurrentList.GK){
-        if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-            console.log("item deleted :", CurrentList.GK[object_pointeur])
-            delete CurrentList.GK[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.GK) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    delete CurrentList.GK[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionDF":
 
-        for (let object_pointeur in  CurrentList.DF){
-        if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-            console.log("item deleted :", CurrentList.DF[object_pointeur])
-            delete CurrentList.DF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.DF) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    delete CurrentList.DF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionMF":
 
-        for (let object_pointeur in  CurrentList.MF){
-        if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-            console.log("item deleted :", CurrentList.MF[object_pointeur])
-            delete CurrentList.MF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.MF) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    delete CurrentList.MF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionFW":
 
-        for (let object_pointeur in  CurrentList.FW){
-        if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-4 + variableOffset] ){
-            console.log("item deleted :", CurrentList.FW[object_pointeur])
-            delete CurrentList.FW[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.FW) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    delete CurrentList.FW[object_pointeur]
+                    break
+                }
+            }
+            break;
     }
 
 
@@ -1027,72 +1059,74 @@ buttonSelected3.addEventListener("click", function () {
     selectedCharacter(image_selected)
 
     let variableOffset
-    if(combo2.value == "optionFOR" || combo2.value == "optionCoach"){
-    variableOffset = 2 }else{ variableOffset = 0
+    if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        variableOffset = 2
+    } else {
+        variableOffset = 0
     }
 
     switch (combo2.value) {
         case "optionFOR":
 
-            for (let object_pointeur in  CurrentList.Formation){
-            if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-                console.log("item deleted :", CurrentList.Formation[object_pointeur])
-                delete CurrentList.Formation[object_pointeur]
-                break
-            }
+            for (let object_pointeur in CurrentList.Formation) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    delete CurrentList.Formation[object_pointeur]
+                    break
+                }
             }
             break;
-    
+
         case "optionCoach":
 
-        for (let object_pointeur in  CurrentList.Coach){
-        if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-            console.log("item deleted :", CurrentList.Coach[object_pointeur])
-            delete CurrentList.Coach[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.Coach) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    delete CurrentList.Coach[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionGK":
 
-        for (let object_pointeur in  CurrentList.GK){
-        if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-            console.log("item deleted :", CurrentList.GK[object_pointeur])
-            delete CurrentList.GK[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.GK) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    delete CurrentList.GK[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionDF":
 
-        for (let object_pointeur in  CurrentList.DF){
-        if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-            console.log("item deleted :", CurrentList.DF[object_pointeur])
-            delete CurrentList.DF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.DF) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    delete CurrentList.DF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionMF":
 
-        for (let object_pointeur in  CurrentList.MF){
-        if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-            console.log("item deleted :", CurrentList.MF[object_pointeur])
-            delete CurrentList.MF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.MF) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    delete CurrentList.MF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionFW":
 
-        for (let object_pointeur in  CurrentList.FW){
-        if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-3 + variableOffset] ){
-            console.log("item deleted :", CurrentList.FW[object_pointeur])
-            delete CurrentList.FW[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.FW) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
+                    console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    delete CurrentList.FW[object_pointeur]
+                    break
+                }
+            }
+            break;
     }
 
     var buttonSelected1 = document.getElementById("buttonSelected1");
@@ -1152,65 +1186,65 @@ buttonSelected4.addEventListener("click", function () {
     switch (combo2.value) {
         case "optionFOR":
 
-            for (let object_pointeur in  CurrentList.Formation){
-            if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-                console.log("item deleted :", CurrentList.Formation[object_pointeur])
-                delete CurrentList.Formation[object_pointeur]
-                break
-            }
+            for (let object_pointeur in CurrentList.Formation) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    delete CurrentList.Formation[object_pointeur]
+                    break
+                }
             }
             break;
-    
+
         case "optionCoach":
 
-        for (let object_pointeur in  CurrentList.Coach){
-        if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-            console.log("item deleted :", CurrentList.Coach[object_pointeur])
-            delete CurrentList.Coach[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.Coach) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    delete CurrentList.Coach[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionGK":
 
-        for (let object_pointeur in  CurrentList.GK){
-        if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-            console.log("item deleted :", CurrentList.GK[object_pointeur])
-            delete CurrentList.GK[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.GK) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    delete CurrentList.GK[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionDF":
 
-        for (let object_pointeur in  CurrentList.DF){
-        if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-            console.log("item deleted :", CurrentList.DF[object_pointeur])
-            delete CurrentList.DF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.DF) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    delete CurrentList.DF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionMF":
 
-        for (let object_pointeur in  CurrentList.MF){
-        if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-            console.log("item deleted :", CurrentList.MF[object_pointeur])
-            delete CurrentList.MF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.MF) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    delete CurrentList.MF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionFW":
 
-        for (let object_pointeur in  CurrentList.FW){
-        if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-2] ){
-            console.log("item deleted :", CurrentList.FW[object_pointeur])
-            delete CurrentList.FW[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.FW) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                    console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    delete CurrentList.FW[object_pointeur]
+                    break
+                }
+            }
+            break;
     }
 
     var buttonSelected1 = document.getElementById("buttonSelected1");
@@ -1269,65 +1303,65 @@ buttonSelected5.addEventListener("click", function () {
     switch (combo2.value) {
         case "optionFOR":
 
-            for (let object_pointeur in  CurrentList.Formation){
-            if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-                console.log("item deleted :", CurrentList.Formation[object_pointeur])
-                delete CurrentList.Formation[object_pointeur]
-                break
-            }
+            for (let object_pointeur in CurrentList.Formation) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    delete CurrentList.Formation[object_pointeur]
+                    break
+                }
             }
             break;
-    
+
         case "optionCoach":
 
-        for (let object_pointeur in  CurrentList.Coach){
-        if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-            console.log("item deleted :", CurrentList.Coach[object_pointeur])
-            delete CurrentList.Coach[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.Coach) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    delete CurrentList.Coach[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionGK":
 
-        for (let object_pointeur in  CurrentList.GK){
-        if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-            console.log("item deleted :", CurrentList.GK[object_pointeur])
-            delete CurrentList.GK[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.GK) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    delete CurrentList.GK[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionDF":
 
-        for (let object_pointeur in  CurrentList.DF){
-        if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-            console.log("item deleted :", CurrentList.DF[object_pointeur])
-            delete CurrentList.DF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.DF) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    delete CurrentList.DF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionMF":
 
-        for (let object_pointeur in  CurrentList.MF){
-        if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-            console.log("item deleted :", CurrentList.MF[object_pointeur])
-            delete CurrentList.MF[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.MF) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    delete CurrentList.MF[object_pointeur]
+                    break
+                }
+            }
+            break;
         case "optionFW":
 
-        for (let object_pointeur in  CurrentList.FW){
-        if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length-1] ){
-            console.log("item deleted :", CurrentList.FW[object_pointeur])
-            delete CurrentList.FW[object_pointeur]
-            break
-        }
-        }
-        break;
+            for (let object_pointeur in CurrentList.FW) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
+                    console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    delete CurrentList.FW[object_pointeur]
+                    break
+                }
+            }
+            break;
     }
 
     var buttonSelected1 = document.getElementById("buttonSelected1");
@@ -1473,17 +1507,17 @@ function selectedCharacter(SelectedImage) {
 
 var refresh8button = document.getElementById("refresh-button");
 refresh8button.addEventListener("click", function () {
-init()
-counter = 0
-combo.disabled = false;
-combo2.disabled = false;
+    init()
+    counter = 0
+    combo.disabled = false;
+    combo2.disabled = false;
 
-var Your_Team_Formation = document.getElementById("Your_Team_Formation");
-Your_Team_Formation.src = "Resource\\field.svg";
+    var Your_Team_Formation = document.getElementById("Your_Team_Formation");
+    Your_Team_Formation.src = "Resource\\field.svg";
 
 
-var Your_Team_Coach = document.getElementById("Your_Team_Coach");
-Your_Team_Coach.src = "Resource\\character-placeholder.png";
+    var Your_Team_Coach = document.getElementById("Your_Team_Coach");
+    Your_Team_Coach.src = "Resource\\character-placeholder.png";
 
     var pic1_selected = document.getElementById("pic1_selected");
     pic1_selected.src = "Resource\\character-placeholder.png";
@@ -1517,7 +1551,7 @@ Your_Team_Coach.src = "Resource\\character-placeholder.png";
     pic15_selected.src = "Resource\\character-placeholder.png";
     var pic16_selected = document.getElementById("pic16_selected");
     pic16_selected.src = "Resource\\character-placeholder.png";
-    
+
     var IMG_Charcter_1 = document.getElementById("IMG_Charcter_1");
     var IMG_Charcter_2 = document.getElementById("IMG_Charcter_2");
     var IMG_Charcter_3 = document.getElementById("IMG_Charcter_3");
@@ -1551,6 +1585,76 @@ Your_Team_Coach.src = "Resource\\character-placeholder.png";
     Name_Text_4.innerText = "";
     Name_Text_5.innerText = "";
 
+    selectedOptionC1 = combo.value;
+    switch (selectedOptionC1) {
+        case "optionIE1":
+            CurrentSaison = IE_1;
+            break;
+        case "optionIE2":
+            CurrentSaison = IE_2;
+            break;
+        case "optionIE3":
+            CurrentSaison = IE_3;
+            break;
+        case "optionIEGO":
+            CurrentSaison = IE_GO;
+            break;
+        case "optionIEGOCS":
+            CurrentSaison = IE_GOCS;
+            break;
+        case "optionIEGOGALAXY":
+            CurrentSaison = IE_GOGALAXY;
+            break;
+        case "optionIEARES":
+            CurrentSaison = IE_ARES;
+            break;
+        case "optionIEORION":
+            CurrentSaison = IE_ORION;
+            break;
+        case "optionIEALL":
+            CurrentSaison = IE_ALL;
+            break;
+        case "optionIEBETAVR":
+            CurrentSaison = IE_BETAVR;
+            break;
+        //default:
+        // Gérer d'autres options si nécessaire
+        //    break;
+    }
+
+
+    on_comboBox_type_changed(combo.value)
+
+    GK["Players"] = [];
+    MF["Players"] = [];
+    FW["Players"] = [];
+    DF["Players"] = [];
+
+    console.log("after")
+    CurrentList["GK"] = GK.Players;
+    CurrentList["DF"] = DF.Players;
+    CurrentList["MF"] = MF.Players;
+    CurrentList["FW"] = FW.Players;
+
+    console.log(CurrentList);
+
+    Object.values(CurrentSaison).forEach(joueur => {
+        if (joueur.Poste === "GK") {
+            GK.Players.push(joueur);
+        }
+        else if (joueur.Poste === "DF") {
+            DF.Players.push(joueur);
+        }
+        else if (joueur.Poste === "MF") {
+            MF.Players.push(joueur);
+        }
+        else if (joueur.Poste === "FW") {
+            FW.Players.push(joueur);
+        }
+    });
+
+
+    refresh = true;
 
 });
 

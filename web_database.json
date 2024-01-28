@@ -13238,6 +13238,344 @@
             "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Orion\\(SU) (MF) (\u2642) Sammy Dempsey.png"
         }
     },
+    "IE_betaVR": {
+        "0": {
+            "Nom": "Clear",
+            "Team": "AM",
+            "Genre": "\u2640",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (DF) (\u2640) Clear.png"
+        },
+        "1": {
+            "Nom": "Gocker",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (DF) (\u2642) Gocker.png"
+        },
+        "2": {
+            "Nom": "Zohen",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (DF) (\u2642) Zohen.png"
+        },
+        "3": {
+            "Nom": "Gazelle",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Gazelle.png"
+        },
+        "4": {
+            "Nom": "Neppten",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Neppten.png"
+        },
+        "5": {
+            "Nom": "Torch",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Torch.png"
+        },
+        "6": {
+            "Nom": "Wittz",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Wittz.png"
+        },
+        "7": {
+            "Nom": "Xene",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Xene.png"
+        },
+        "8": {
+            "Nom": "Zell",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (FW) (\u2642) Zell.png"
+        },
+        "9": {
+            "Nom": "Dvalin",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "GK",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (GK) (\u2642) Dvalin.png"
+        },
+        "10": {
+            "Nom": "Bellatrix",
+            "Team": "AM",
+            "Genre": "\u2640",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2640) Bellatrix.png"
+        },
+        "11": {
+            "Nom": "Icer",
+            "Team": "AM",
+            "Genre": "\u2640",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2640) Icer.png"
+        },
+        "12": {
+            "Nom": "Lean",
+            "Team": "AM",
+            "Genre": "\u2640",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2640) Lean.png"
+        },
+        "13": {
+            "Nom": "Bomber",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2642) Bomber.png"
+        },
+        "14": {
+            "Nom": "Janus",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2642) Janus.png"
+        },
+        "15": {
+            "Nom": "Kormer",
+            "Team": "AM",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(AM) (MF) (\u2642) Kormer.png"
+        },
+        "16": {
+            "Nom": " Jack Wallside",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (DF) (\u2642)  Jack Wallside.png"
+        },
+        "17": {
+            "Nom": " Nathan Swift",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (DF) (\u2642)  Nathan Swift.png"
+        },
+        "18": {
+            "Nom": "Hurley Kane",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (DF) (\u2642) Hurley Kane.png"
+        },
+        "19": {
+            "Nom": "Jean-Pierre Lapin",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (DF) (\u2642) Jean-Pierre Lapin.png"
+        },
+        "20": {
+            "Nom": " Axel Blaze",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (FW) (\u2642)  Axel Blaze.png"
+        },
+        "21": {
+            "Nom": " Heath Moore",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (FW) (\u2642)  Heath Moore.png"
+        },
+        "22": {
+            "Nom": " Xavier Foster",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (FW) (\u2642)  Xavier Foster.png"
+        },
+        "23": {
+            "Nom": "Sonny Wright",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (FW) (\u2642) Sonny Wright.png"
+        },
+        "24": {
+            "Nom": "Victor Blade",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (FW) (\u2642) Victor Blade.png"
+        },
+        "25": {
+            "Nom": " Mark Evans",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "GK",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (GK) (\u2642)  Mark Evans.png"
+        },
+        "26": {
+            "Nom": "Darren LaChance",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "GK",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (GK) (\u2642) Darren LaChance.png"
+        },
+        "27": {
+            "Nom": " Byron Love",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (MF) (\u2642)  Byron Love.png"
+        },
+        "28": {
+            "Nom": " Jordan Greenway",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (MF) (\u2642)  Jordan Greenway.png"
+        },
+        "29": {
+            "Nom": "Arion Sherwind",
+            "Team": "IAS",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(IAS) (MF) (\u2642) Arion Sherwind.png"
+        },
+        "30": {
+            "Nom": "Aitor Cazador",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (DF) (\u2642) Aitor Cazador.png"
+        },
+        "31": {
+            "Nom": "Gabriel Garcia",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (DF) (\u2642) Gabriel Garcia.png"
+        },
+        "32": {
+            "Nom": "Scotty Banyan",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (DF) (\u2642) Scotty Banyan.png"
+        },
+        "33": {
+            "Nom": "Suzette Hartland",
+            "Team": "JD",
+            "Genre": "\u2640",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2640) Suzette Hartland.png"
+        },
+        "34": {
+            "Nom": " Elliot Ember",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642)  Elliot Ember.png"
+        },
+        "35": {
+            "Nom": " Kevin Dragonfly",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642)  Kevin Dragonfly.png"
+        },
+        "36": {
+            "Nom": " Shawn Froste",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642)  Shawn Froste.png"
+        },
+        "37": {
+            "Nom": "Bailong",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642) Bailong.png"
+        },
+        "38": {
+            "Nom": "Tezcat",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642) Tezcat.png"
+        },
+        "39": {
+            "Nom": "Zanark Avalonic",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (FW) (\u2642) Zanark Avalonic.png"
+        },
+        "40": {
+            "Nom": "Samguk Han",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "GK",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (GK) (\u2642) Samguk Han.png"
+        },
+        "41": {
+            "Nom": "Victoria Vanguard",
+            "Team": "JD",
+            "Genre": "\u2640",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (MF) (\u2640) Victoria Vanguard.png"
+        },
+        "42": {
+            "Nom": " Caleb Stonewall",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (MF) (\u2642)  Caleb Stonewall.png"
+        },
+        "43": {
+            "Nom": " Jude Sharp",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (MF) (\u2642)  Jude Sharp.png"
+        },
+        "44": {
+            "Nom": "Eric Eagle",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (MF) (\u2642) Eric Eagle.png"
+        },
+        "45": {
+            "Nom": "Riccardo Di Rigo",
+            "Team": "JD",
+            "Genre": "\u2642",
+            "Poste": "MF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(JD) (MF) (\u2642) Riccardo Di Rigo.png"
+        },
+        "46": {
+            "Nom": "Goldie Lemmon (Personnalis\u00e9)",
+            "Team": "RM",
+            "Genre": "\u2640",
+            "Poste": "DF",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(RM) (DF) (\u2640) Goldie Lemmon (Personnalis\u00e9).png"
+        },
+        "47": {
+            "Nom": "Fei Rune",
+            "Team": "RM",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven Victory Road Beta\\(RM) (FW) (\u2642) Fei Rune.png"
+        }
+    },
     "IE_1_COACH": {
         "0": {
             "Nom": "Newton Thomas",
