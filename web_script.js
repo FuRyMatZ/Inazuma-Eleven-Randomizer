@@ -1,5 +1,5 @@
-const Nb_Cycle = 4;
-const Countdown = 22;
+const Nb_Cycle = 3;
+const Countdown = 1000;
 
 let SelectedPost
 let refresh = false;
