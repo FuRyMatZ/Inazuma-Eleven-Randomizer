@@ -243,26 +243,26 @@ async function init() {
     IE_ORION_COACH = data.IE_ORION_COACH;
     IE_ALL = data.IE_ALL;
     IE_ALL_COACH = data.IE_ALL_COACH;
-    
-    if (refresh = false){
-    console.log("refresh")
-    console.log(refresh)
-    Object.values(IE_1).forEach(joueur => { Joueurs.push(joueur.Path); });
 
-    Object.values(IE_1).forEach(joueur => {
-        if (joueur.Poste === "GK") {
-            GK.Players.push(joueur);
-        }
-        else if (joueur.Poste === "DF") {
-            DF.Players.push(joueur);
-        }
-        else if (joueur.Poste === "MF") {
-            MF.Players.push(joueur);
-        }
-        else if (joueur.Poste === "FW") {
-            FW.Players.push(joueur);
-        }
-    });
+    if (refresh = false) {
+        console.log("refresh")
+        console.log(refresh)
+        Object.values(IE_1).forEach(joueur => { Joueurs.push(joueur.Path); });
+
+        Object.values(IE_1).forEach(joueur => {
+            if (joueur.Poste === "GK") {
+                GK.Players.push(joueur);
+            }
+            else if (joueur.Poste === "DF") {
+                DF.Players.push(joueur);
+            }
+            else if (joueur.Poste === "MF") {
+                MF.Players.push(joueur);
+            }
+            else if (joueur.Poste === "FW") {
+                FW.Players.push(joueur);
+            }
+        });
     }
 
     CurrentList["Formation"] = Formation;
@@ -367,7 +367,7 @@ combo2.addEventListener("change", function () {
 
 function on_comboBox_type_changed(selectOpt) {
 
-    if (combo.value == "default" || combo2.value == "default"){
+    if (combo.value == "default" || combo2.value == "default") {
         var buttonStart = document.getElementById("start-button");
         var buttonSelected1 = document.getElementById("buttonSelected1");
         var buttonSelected2 = document.getElementById("buttonSelected2");
@@ -385,8 +385,8 @@ function on_comboBox_type_changed(selectOpt) {
         buttonSelected2.classList.add("disabled-button");
         buttonSelected3.classList.add("disabled-button");
         buttonSelected4.classList.add("disabled-button");
-        buttonSelected5.classList.add("disabled-button");        
-    }else{
+        buttonSelected5.classList.add("disabled-button");
+    } else {
 
         var buttonStart = document.getElementById("start-button");
         var buttonSelected1 = document.getElementById("buttonSelected1");
@@ -405,94 +405,95 @@ function on_comboBox_type_changed(selectOpt) {
         buttonSelected2.classList.remove("disabled-button");
         buttonSelected3.classList.remove("disabled-button");
         buttonSelected4.classList.remove("disabled-button");
-        buttonSelected5.classList.remove("disabled-button");      
+        buttonSelected5.classList.remove("disabled-button");
 
-    Status = false
-    var selectedOption = combo2.value;
-    let Saison = combo.value;
-    console.log("")
-    console.log(selectOpt)
-    console.log("")
-    if (selected_previous_option === "optionFOR" || selected_previous_option === "optionCoach" || selected_previous_option == "optionIEBETAVR") {
+        Status = false
+        var selectedOption = combo2.value;
+        let Saison = combo.value;
+        console.log("")
+        console.log(selectOpt)
+        console.log("")
+        if (selected_previous_option === "optionFOR" || selected_previous_option === "optionCoach" || selected_previous_option == "optionIEBETAVR") {
 
-        img_down_row.style.display = "flex";
-    }
+            img_down_row.style.display = "flex";
+        }
 
-    if (combo.value == "optionIEBETAVR") {
+        if (combo.value == "optionIEBETAVR") {
 
-        img_down_row.style.display = "none";
-        Status = true
-    }
-
-    if (selectedOption == "optionFOR") {
-
-        img_down_row.style.display = "none";
-        Status = true
-    }
-    switch (selectedOption) {
-        case "optionCoach":
             img_down_row.style.display = "none";
             Status = true
-            switch (selectOpt) {
-                case "optionIE1":
-                    CurrentList["Coach"] = IE_1_COACH;
-                    break;
-                case "optionIE2":
-                    CurrentList["Coach"] = IE_2_COACH;
-                    break;
-                case "optionIE3":
-                    CurrentList["Coach"] = IE_3_COACH;
-                    break;
-                case "optionIEGO":
-                    CurrentList["Coach"] = IE_GO_COACH;
-                    break;
-                case "optionIEGOCS":
-                    CurrentList["Coach"] = IE_GOCS_COACH;
-                    break;
-                case "optionIEGOGALAXY":
-                    CurrentList["Coach"] = IE_GOGALAXY_COACH;
-                    break;
-                case "optionIEARES":
-                    CurrentList["Coach"] = IE_ARES_COACH;
-                    break;
-                case "optionIEORION":
-                    CurrentList["Coach"] = IE_ORION_COACH;
-                    break;
-                case "optionIEALL":
-                    CurrentList["Coach"] = IE_ALL_COACH;
-                    break;
-                case "optionIEBETAVR":
-                    CurrentList["Coach"] = IE_BETAVR;
-                    break;
-            }
-            break;
+        }
 
-        case "optionGK":
-            SelectedPost = GK
-            Status = true
-            break;
+        if (selectedOption == "optionFOR") {
 
-        case "optionDF":
-            SelectedPost = DF
+            img_down_row.style.display = "none";
             Status = true
-            break;
+        }
+        switch (selectedOption) {
+            case "optionCoach":
+                img_down_row.style.display = "none";
+                Status = true
+                switch (selectOpt) {
+                    case "optionIE1":
+                        CurrentList["Coach"] = IE_1_COACH;
+                        break;
+                    case "optionIE2":
+                        CurrentList["Coach"] = IE_2_COACH;
+                        break;
+                    case "optionIE3":
+                        CurrentList["Coach"] = IE_3_COACH;
+                        break;
+                    case "optionIEGO":
+                        CurrentList["Coach"] = IE_GO_COACH;
+                        break;
+                    case "optionIEGOCS":
+                        CurrentList["Coach"] = IE_GOCS_COACH;
+                        break;
+                    case "optionIEGOGALAXY":
+                        CurrentList["Coach"] = IE_GOGALAXY_COACH;
+                        break;
+                    case "optionIEARES":
+                        CurrentList["Coach"] = IE_ARES_COACH;
+                        break;
+                    case "optionIEORION":
+                        CurrentList["Coach"] = IE_ORION_COACH;
+                        break;
+                    case "optionIEALL":
+                        CurrentList["Coach"] = IE_ALL_COACH;
+                        break;
+                    case "optionIEBETAVR":
+                        CurrentList["Coach"] = IE_BETAVR;
+                        break;
+                }
+                break;
 
-        case "optionMF":
-            SelectedPost = MF
-            Status = true
-            break;
+            case "optionGK":
+                SelectedPost = GK
+                Status = true
+                break;
 
-        case "optionFW":
-            SelectedPost = FW
-            Status = true
-            break;
+            case "optionDF":
+                SelectedPost = DF
+                Status = true
+                break;
+
+            case "optionMF":
+                SelectedPost = MF
+                Status = true
+                break;
+
+            case "optionFW":
+                SelectedPost = FW
+                Status = true
+                break;
+        }
+        selected_previous_option = selectedOption
+        if (combo.value == "optionIEBETAVR") {
+            selected_previous_option = "optionIEBETAVR"
+        }
+
+        console.log(CurrentList);
     }
-    selected_previous_option = selectedOption
-    if (combo.value == "optionIEBETAVR") {
-        selected_previous_option = "optionIEBETAVR"
-    }
-
-    console.log(CurrentList);}
 }
 
 function shuffleObject(obj) {
@@ -517,13 +518,16 @@ function shuffleObject(obj) {
 var startButton = document.getElementById("start-button");
 startButton.addEventListener("click", function () {
 
-
+    
+    var refresh_button = document.getElementById("refresh-button");
+    refresh_button.disabled = true;
     startButton.disabled = true;
     buttonSelected1.disabled = true;
     buttonSelected2.disabled = true;
     buttonSelected3.disabled = true;
     buttonSelected4.disabled = true;
     buttonSelected5.disabled = true;
+    refresh_button.classList.add("disabled-button");
     startButton.classList.add("disabled-button");
     buttonSelected1.classList.add("disabled-button");
     buttonSelected2.classList.add("disabled-button");
@@ -585,8 +589,16 @@ startButton.addEventListener("click", function () {
     }
     let Nb_item = Object.keys(shuffledArray).length
     console.log("Taille de l'objet :", Nb_item);
-    let TotalItems = Nb_Cycle * Nb_item
+    //let TotalItems = Nb_Cycle * Nb_item
+    let TotalItems = 175
 
+    if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        TotalItems = 175
+    } else {
+        TotalItems = 250
+    }
+
+    console.log("TotalItems :",TotalItems);
 
     const image1 = document.getElementById("IMG_Charcter_1");
     const image2 = document.getElementById("IMG_Charcter_2");
@@ -637,12 +649,14 @@ startButton.addEventListener("click", function () {
 
     afficherImagesAvecIntervalle(shuffledArray, 0, TotalItems, Nb_item, team_template, Team_directory)
 
+    refresh_button.disabled = false;
     startButton.disabled = false;
     buttonSelected1.disabled = false;
     buttonSelected2.disabled = false;
     buttonSelected3.disabled = false;
     buttonSelected4.disabled = false;
     buttonSelected5.disabled = false;
+    refresh_button.classList.remove("disabled-button");
     startButton.classList.remove("disabled-button");
     buttonSelected1.classList.remove("disabled-button");
     buttonSelected2.classList.remove("disabled-button");
@@ -678,6 +692,7 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
         } else {
             nbr_image_display = 5
         }
+        
 
         if (index % nbr_image_display == 0) {
             team_template.bloc1.image.src = image_path;
@@ -751,7 +766,9 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
         };
 
 
-        let delay_ms = Countdown / 1000
+
+
+        let delay_ms = 3500 / TotalItems
         // Attente de 100 ms avant de passer à l'image suivante
         setTimeout(function () {
             afficherImagesAvecIntervalle(shuffledArray, index + 1, TotalItems, Nb_item, team_template, Team_directory);
@@ -1703,19 +1720,20 @@ refresh8button.addEventListener("click", function () {
 
 });
 
-init();
-
 
 // Afficher la pop-up lors du chargement de la page
-window.onload = function() {
+window.onload = function () {
     var modal = document.getElementById("pop-up");
     modal.style.display = "block";
-  };
-  
-  // Fermer la pop-up lors du clic sur le bouton de fermeture
-  var closeBtn = document.getElementsByClassName("close")[0];
-  closeBtn.onclick = function() {
+};
+
+// Fermer la pop-up lors du clic sur le bouton de fermeture
+var closeBtn = document.getElementsByClassName("close")[0];
+closeBtn.onclick = function () {
     var modal = document.getElementById("pop-up");
     modal.style.display = "none";
-  };
-  
+};
+
+
+
+init();
