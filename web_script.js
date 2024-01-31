@@ -198,16 +198,20 @@ async function init() {
         img_down_row.style.display = "none";
     }
 
+
+    var buttonStart = document.getElementById("start-button");
     var buttonSelected1 = document.getElementById("buttonSelected1");
     var buttonSelected2 = document.getElementById("buttonSelected2");
     var buttonSelected3 = document.getElementById("buttonSelected3");
     var buttonSelected4 = document.getElementById("buttonSelected4");
     var buttonSelected5 = document.getElementById("buttonSelected5");
+    buttonStart.disabled = true;
     buttonSelected1.disabled = true;
     buttonSelected2.disabled = true;
     buttonSelected3.disabled = true;
     buttonSelected4.disabled = true;
     buttonSelected5.disabled = true;
+    buttonStart.classList.add("disabled-button");
     buttonSelected1.classList.add("disabled-button");
     buttonSelected2.classList.add("disabled-button");
     buttonSelected3.classList.add("disabled-button");
@@ -362,6 +366,47 @@ combo2.addEventListener("change", function () {
 });
 
 function on_comboBox_type_changed(selectOpt) {
+
+    if (combo.value == "default" || combo2.value == "default"){
+        var buttonStart = document.getElementById("start-button");
+        var buttonSelected1 = document.getElementById("buttonSelected1");
+        var buttonSelected2 = document.getElementById("buttonSelected2");
+        var buttonSelected3 = document.getElementById("buttonSelected3");
+        var buttonSelected4 = document.getElementById("buttonSelected4");
+        var buttonSelected5 = document.getElementById("buttonSelected5");
+        buttonStart.disabled = true;
+        buttonSelected1.disabled = true;
+        buttonSelected2.disabled = true;
+        buttonSelected3.disabled = true;
+        buttonSelected4.disabled = true;
+        buttonSelected5.disabled = true;
+        buttonStart.classList.add("disabled-button");
+        buttonSelected1.classList.add("disabled-button");
+        buttonSelected2.classList.add("disabled-button");
+        buttonSelected3.classList.add("disabled-button");
+        buttonSelected4.classList.add("disabled-button");
+        buttonSelected5.classList.add("disabled-button");        
+    }else{
+
+        var buttonStart = document.getElementById("start-button");
+        var buttonSelected1 = document.getElementById("buttonSelected1");
+        var buttonSelected2 = document.getElementById("buttonSelected2");
+        var buttonSelected3 = document.getElementById("buttonSelected3");
+        var buttonSelected4 = document.getElementById("buttonSelected4");
+        var buttonSelected5 = document.getElementById("buttonSelected5");
+        buttonStart.disabled = false;
+        buttonSelected1.disabled = false;
+        buttonSelected2.disabled = false;
+        buttonSelected3.disabled = false;
+        buttonSelected4.disabled = false;
+        buttonSelected5.disabled = false;
+        buttonStart.classList.remove("disabled-button");
+        buttonSelected1.classList.remove("disabled-button");
+        buttonSelected2.classList.remove("disabled-button");
+        buttonSelected3.classList.remove("disabled-button");
+        buttonSelected4.classList.remove("disabled-button");
+        buttonSelected5.classList.remove("disabled-button");      
+
     Status = false
     var selectedOption = combo2.value;
     let Saison = combo.value;
@@ -447,7 +492,7 @@ function on_comboBox_type_changed(selectOpt) {
         selected_previous_option = "optionIEBETAVR"
     }
 
-    console.log(CurrentList);
+    console.log(CurrentList);}
 }
 
 function shuffleObject(obj) {
