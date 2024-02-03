@@ -14,7 +14,8 @@ body {
     width: 100%;
     height: 2px;
     background-color: #000000;
-    margin: 5px 0; /* Combine les propriétés margin-top et margin-bottom */
+    margin: 5px 0;
+    /* Combine les propriétés margin-top et margin-bottom */
 }
 
 #label-title {
@@ -41,7 +42,8 @@ body {
     align-items: center;
 }
 
-select, button {
+select,
+button {
     margin-top: 5px;
     cursor: pointer;
 }
@@ -81,11 +83,14 @@ img {
     min-height: 45px;
 }
 
-.select-button:hover, #start-buutton:hover {
+.select-button:hover,
+#start-buutton:hover {
     border: 3px solid rgb(118, 118, 118);
 }
 
-button#start-buutton:active, button.select-button:active, .disabled-button {
+button#start-buutton:active,
+button.select-button:active,
+.disabled-button {
     background-color: rgb(70, 80, 87);
     border: 3px solid rgb(200, 200, 200);
 }
@@ -94,21 +99,26 @@ button#start-buutton:active, button.select-button:active, .disabled-button {
     display: flex;
     align-items: center;
 }
- 
+
 #refresh-button {
     margin-left: 20px;
-    background-image: url('.\\Resource\\refresh.svg'); /* Spécifiez le chemin vers votre image */
-    background-size: cover; /* Ajuste la taille de l'image pour couvrir le bouton */ 
-    background-color: transparent; /* Fond transparent */
-    width: 30px; /* Ajustez la largeur du bouton selon vos besoins */
-    height: 30px; /* Ajustez la hauteur du bouton selon vos besoins */
+    background-image: url('.\\Resource\\refresh.svg');
+    /* Spécifiez le chemin vers votre image */
+    background-size: cover;
+    /* Ajuste la taille de l'image pour couvrir le bouton */
+    background-color: transparent;
+    /* Fond transparent */
+    width: 30px;
+    /* Ajustez la largeur du bouton selon vos besoins */
+    height: 30px;
+    /* Ajustez la hauteur du bouton selon vos besoins */
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-  }
+}
 
 
 
@@ -135,6 +145,25 @@ button#start-buutton:active, button.select-button:active, .disabled-button {
     grid-gap: 5px;
 }
 
+.set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Aligne les éléments au centre horizontalement */
+    justify-content: flex-start;
+    /* Aligne les éléments en haut de la boîte flex */
+    color: #000;
+    padding-bottom: 0px; 
+}
+
+.grid-name {
+    display: none;
+
+    width: 50px; /* Largeur fixe pour le texte */
+    text-align: center;
+    text-overflow: ellipsis; /* Afficher des points de suspension pour indiquer le texte coupé */
+}
+
 #label-your-team {
     color: #000;
     font-size: 14pt;
@@ -147,7 +176,9 @@ button#start-buutton:active, button.select-button:active, .disabled-button {
     align-items: center;
 }
 
-#combo-box1, #combo-box2, select {
+#combo-box1,
+#combo-box2,
+select {
     min-width: 560px;
     min-height: 30px;
     border-radius: 7px;
@@ -155,7 +186,9 @@ button#start-buutton:active, button.select-button:active, .disabled-button {
     background-color: rgb(34, 36, 44);
 }
 
-select option, select option:hover, select option:checked {
+select option,
+select option:hover,
+select option:checked {
     color: #FFF;
     background-color: rgb(70, 80, 87);
 }
@@ -175,29 +208,29 @@ select option, select option:hover, select option:checked {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
     color: #000;
-  }
-  
-  .pop-up-content {
+}
+
+.pop-up-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
-  }
-  
-  .close {
+}
+
+.close {
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  .close:hover {
+}
+
+.close:hover {
     color: #000;
-  }
-  
-  .Pop-discord-btn {
+}
+
+.Pop-discord-btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
@@ -206,13 +239,13 @@ select option, select option:hover, select option:checked {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  .Pop-discord-btn:hover {
+}
+
+.Pop-discord-btn:hover {
     background-color: #5865F2;
-  }
-  
-  .Pop-patreon-btn {
+}
+
+.Pop-patreon-btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
@@ -222,8 +255,8 @@ select option, select option:hover, select option:checked {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-left: 50px;
-  }
-  
-  .Pop-patreon-btn:hover {
+}
+
+.Pop-patreon-btn:hover {
     background-color: #992d19;
-  }
+}

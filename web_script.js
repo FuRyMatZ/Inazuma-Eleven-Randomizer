@@ -30,6 +30,23 @@ let offset = 0;
 let counter = 0;
 let Status = false;
 
+let name1_status = false; 
+let name2_status = false;
+let name3_status = false;
+let name4_status = false;
+let name5_status = false;
+let name6_status = false;
+let name7_status = false;
+let name8_status = false;
+let name9_status = false;
+let name10_status = false;
+let name11_status = false;
+let name12_status = false;
+let name13_status = false;
+let name14_status = false;
+let name15_status = false;
+let name16_status = false;
+
 let selected_previous_option = "optionFOR";
 
 let DF = { Players: [] };
@@ -530,7 +547,7 @@ function shuffleObject(obj) {
 var startButton = document.getElementById("start-button");
 startButton.addEventListener("click", function () {
 
-    
+
     var refresh_button = document.getElementById("refresh-button");
     refresh_button.disabled = true;
     startButton.disabled = true;
@@ -610,7 +627,7 @@ startButton.addEventListener("click", function () {
         TotalItems = 250
     }
 
-    console.log("TotalItems :",TotalItems);
+    console.log("TotalItems :", TotalItems);
 
     const image1 = document.getElementById("IMG_Charcter_1");
     const image2 = document.getElementById("IMG_Charcter_2");
@@ -704,7 +721,7 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
         } else {
             nbr_image_display = 5
         }
-        
+
 
         if (index % nbr_image_display == 0) {
             team_template.bloc1.image.src = image_path;
@@ -870,24 +887,23 @@ buttonSelected1.addEventListener("click", function () {
 
     console.log("selectedButton1")
     image_selected = document.getElementById("IMG_Charcter_1");
-    selectedCharacter(image_selected)
 
+    
     let variableOffset
     if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
         variableOffset = 2
     } else {
         variableOffset = 0
     }
-
-    //    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
-
-
+    
+    
     switch (combo2.value) {
         case "optionFOR":
-
+            
             for (let object_pointeur in CurrentList.Formation) {
                 if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
                     break
                 }
@@ -899,6 +915,7 @@ buttonSelected1.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.Coach) {
                 if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
                     break
                 }
@@ -909,6 +926,7 @@ buttonSelected1.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.GK) {
                 if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
                     break
                 }
@@ -919,6 +937,7 @@ buttonSelected1.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.DF) {
                 if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
                     break
                 }
@@ -929,6 +948,7 @@ buttonSelected1.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.MF) {
                 if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
                     break
                 }
@@ -939,6 +959,7 @@ buttonSelected1.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.FW) {
                 if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 5 + variableOffset]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    selectedCharacter(image_selected,CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
                     break
                 }
@@ -1000,24 +1021,24 @@ buttonSelected2.addEventListener("click", function () {
 
     console.log("selectedButton2")
     image_selected = document.getElementById("IMG_Charcter_2");
-    selectedCharacter(image_selected)
-
+    
     let variableOffset
     if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
         variableOffset = 2
     } else {
         variableOffset = 0
     }
-
+    
     //    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
-
-
+    
+    
     switch (combo2.value) {
         case "optionFOR":
-
+            
             for (let object_pointeur in CurrentList.Formation) {
                 if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
                     break
                 }
@@ -1029,6 +1050,7 @@ buttonSelected2.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.Coach) {
                 if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
                     break
                 }
@@ -1039,6 +1061,7 @@ buttonSelected2.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.GK) {
                 if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
                     break
                 }
@@ -1049,6 +1072,7 @@ buttonSelected2.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.DF) {
                 if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
                     break
                 }
@@ -1059,6 +1083,7 @@ buttonSelected2.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.MF) {
                 if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
                     break
                 }
@@ -1069,6 +1094,7 @@ buttonSelected2.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.FW) {
                 if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 4 + variableOffset]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
                     break
                 }
@@ -1130,21 +1156,21 @@ buttonSelected3.addEventListener("click", function () {
 
     console.log("selectedButton3")
     image_selected = document.getElementById("IMG_Charcter_3");
-    selectedCharacter(image_selected)
-
+    
     let variableOffset
     if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
         variableOffset = 2
     } else {
         variableOffset = 0
     }
-
+    
     switch (combo2.value) {
         case "optionFOR":
-
+            
             for (let object_pointeur in CurrentList.Formation) {
                 if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
                     break
                 }
@@ -1156,6 +1182,7 @@ buttonSelected3.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.Coach) {
                 if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
                     break
                 }
@@ -1166,6 +1193,7 @@ buttonSelected3.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.GK) {
                 if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
                     break
                 }
@@ -1176,6 +1204,7 @@ buttonSelected3.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.DF) {
                 if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
                     break
                 }
@@ -1186,6 +1215,7 @@ buttonSelected3.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.MF) {
                 if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
                     break
                 }
@@ -1196,6 +1226,7 @@ buttonSelected3.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.FW) {
                 if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 3 + variableOffset]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
                     break
                 }
@@ -1255,14 +1286,14 @@ buttonSelected4.addEventListener("click", function () {
 
     console.log("selectedButton4")
     image_selected = document.getElementById("IMG_Charcter_4");
-    selectedCharacter(image_selected)
-
+    
     switch (combo2.value) {
         case "optionFOR":
-
+            
             for (let object_pointeur in CurrentList.Formation) {
                 if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
                     break
                 }
@@ -1274,6 +1305,7 @@ buttonSelected4.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.Coach) {
                 if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
                     break
                 }
@@ -1284,6 +1316,7 @@ buttonSelected4.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.GK) {
                 if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
                     break
                 }
@@ -1294,6 +1327,7 @@ buttonSelected4.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.DF) {
                 if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
                     break
                 }
@@ -1304,6 +1338,7 @@ buttonSelected4.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.MF) {
                 if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
                     break
                 }
@@ -1314,6 +1349,7 @@ buttonSelected4.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.FW) {
                 if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
                     break
                 }
@@ -1373,13 +1409,13 @@ buttonSelected5.addEventListener("click", function () {
 
     console.log("selectedButton5")
     image_selected = document.getElementById("IMG_Charcter_5");
-    selectedCharacter(image_selected)
     switch (combo2.value) {
         case "optionFOR":
-
+            
             for (let object_pointeur in CurrentList.Formation) {
                 if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
                     break
                 }
@@ -1391,6 +1427,7 @@ buttonSelected5.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.Coach) {
                 if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
                     break
                 }
@@ -1401,6 +1438,7 @@ buttonSelected5.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.GK) {
                 if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
                     break
                 }
@@ -1411,6 +1449,7 @@ buttonSelected5.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.DF) {
                 if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
                     break
                 }
@@ -1421,6 +1460,7 @@ buttonSelected5.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.MF) {
                 if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
                     break
                 }
@@ -1431,6 +1471,7 @@ buttonSelected5.addEventListener("click", function () {
             for (let object_pointeur in CurrentList.FW) {
                 if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 1]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
+                    selectedCharacter(image_selected, CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
                     break
                 }
@@ -1483,7 +1524,7 @@ buttonSelected5.addEventListener("click", function () {
     Name_Text_4.innerText = "";
 });
 
-function selectedCharacter(SelectedImage) {
+function selectedCharacter(SelectedImage, SelectedNom) {
     if (combo2.value == "optionFOR") {
         var Your_Team_Formation = document.getElementById("Your_Team_Formation");
         Your_Team_Formation.src = SelectedImage.src;
@@ -1499,80 +1540,129 @@ function selectedCharacter(SelectedImage) {
         if (counter == 1) {
             var pic1_selected = document.getElementById("pic1_selected");
             pic1_selected.src = SelectedImage.src;
+            name1_status = true;
+            var name = document.getElementById('name1_selected');
+            name.innerText = SelectedNom
+
         }
         if (counter == 2) {
             var pic2_selected = document.getElementById("pic2_selected");
             pic2_selected.src = SelectedImage.src;
+            name2_status = true;
+            var name = document.getElementById('name2_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 3) {
             var pic3_selected = document.getElementById("pic3_selected");
             pic3_selected.src = SelectedImage.src;
+            name3_status = true;
+            var name = document.getElementById('name3_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 4) {
             var pic4_selected = document.getElementById("pic4_selected");
             pic4_selected.src = SelectedImage.src;
+            name4_status = true;
+            var name = document.getElementById('name4_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 5) {
             var pic5_selected = document.getElementById("pic5_selected");
             pic5_selected.src = SelectedImage.src;
+            name5_status = true;
+            var name = document.getElementById('name5_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 6) {
             var pic6_selected = document.getElementById("pic6_selected");
             pic6_selected.src = SelectedImage.src;
+            name6_status = true;
+            var name = document.getElementById('name6_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 7) {
             var pic7_selected = document.getElementById("pic7_selected");
             pic7_selected.src = SelectedImage.src;
+            name7_status = true;
+            var name = document.getElementById('name7_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 8) {
             var pic8_selected = document.getElementById("pic8_selected");
             pic8_selected.src = SelectedImage.src;
+            name8_status = true;
+            var name = document.getElementById('name8_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 9) {
             var pic9_selected = document.getElementById("pic9_selected");
             pic9_selected.src = SelectedImage.src;
+            name9_status = true;
+            var name = document.getElementById('name9_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 10) {
             var pic10_selected = document.getElementById("pic10_selected");
+            name10_status = true;
             pic10_selected.src = SelectedImage.src;
+            var name = document.getElementById('name10_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 11) {
             var pic11_selected = document.getElementById("pic11_selected");
             pic11_selected.src = SelectedImage.src;
+            name11_status = true;
+            var name = document.getElementById('name11_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 12) {
             var pic12_selected = document.getElementById("pic12_selected");
             pic12_selected.src = SelectedImage.src;
+            name12_status = true;
+            var name = document.getElementById('name12_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 13) {
             var pic13_selected = document.getElementById("pic13_selected");
             pic13_selected.src = SelectedImage.src;
+            name13_status = true;
+            var name = document.getElementById('name13_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 14) {
             var pic14_selected = document.getElementById("pic14_selected");
             pic14_selected.src = SelectedImage.src;
+            name14_status = true;
+            var name = document.getElementById('name14_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 15) {
             var pic15_selected = document.getElementById("pic15_selected");
             pic15_selected.src = SelectedImage.src;
+            name15_status = true;
+            var name = document.getElementById('name15_selected');
+            name.innerText = SelectedNom
         }
 
         if (counter == 16) {
             var pic16_selected = document.getElementById("pic16_selected");
             pic16_selected.src = SelectedImage.src;
+            name16_status = true;
+            var name = document.getElementById('name16_selected');
+            name.innerText = SelectedNom
         }
 
     }
@@ -1582,6 +1672,24 @@ function selectedCharacter(SelectedImage) {
 var refresh8button = document.getElementById("refresh-button");
 refresh8button.addEventListener("click", function () {
     init()
+
+    name1_status = false; 
+    name2_status = false;
+    name3_status = false;
+    name4_status = false;
+    name5_status = false;
+    name6_status = false;
+    name7_status = false;
+    name8_status = false;
+    name9_status = false;
+    name10_status = false;
+    name11_status = false;
+    name12_status = false;
+    name13_status = false;
+    name14_status = false;
+    name15_status = false;
+    name16_status = false;
+
     counter = 0
     combo.disabled = false;
     combo2.disabled = false;
@@ -1745,6 +1853,263 @@ closeBtn.onclick = function () {
     var modal = document.getElementById("pop-up");
     modal.style.display = "none";
 };
+
+
+var pic1 = document.getElementById('pic1_selected');
+pic1.addEventListener('mouseenter', function () {
+    
+    if (name1_status == true){
+    var name = document.getElementById('name1_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic1.addEventListener('mouseleave', function () {
+    
+    if (name1_status == true){
+    var name = document.getElementById('name1_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic2 = document.getElementById('pic2_selected');
+pic2.addEventListener('mouseenter', function () {
+    
+    if (name2_status == true){
+    var name = document.getElementById('name2_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic2.addEventListener('mouseleave', function () {
+    
+    if (name2_status == true){
+    var name = document.getElementById('name2_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic3 = document.getElementById('pic3_selected');
+pic3.addEventListener('mouseenter', function () {
+    
+    if (name3_status == true){
+    var name = document.getElementById('name3_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic3.addEventListener('mouseleave', function () {
+    
+    if (name3_status == true){
+    var name = document.getElementById('name3_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic4 = document.getElementById('pic4_selected');
+pic4.addEventListener('mouseenter', function () {
+    
+    if (name4_status == true){
+    var name = document.getElementById('name4_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic4.addEventListener('mouseleave', function () {
+    
+    if (name4_status == true){
+    var name = document.getElementById('name4_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic5 = document.getElementById('pic5_selected');
+pic5.addEventListener('mouseenter', function () {
+    
+    if (name5_status == true){
+    var name = document.getElementById('name5_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic5.addEventListener('mouseleave', function () {
+    
+    if (name5_status == true){
+    var name = document.getElementById('name5_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic6 = document.getElementById('pic6_selected');
+pic6.addEventListener('mouseenter', function () {
+    
+    if (name6_status == true){
+    var name = document.getElementById('name6_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic6.addEventListener('mouseleave', function () {
+    
+    if (name6_status == true){
+    var name = document.getElementById('name6_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic7 = document.getElementById('pic7_selected');
+pic7.addEventListener('mouseenter', function () {
+    
+    if (name7_status == true){
+    var name = document.getElementById('name7_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic7.addEventListener('mouseleave', function () {
+    
+    if (name7_status == true){
+    var name = document.getElementById('name7_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic8 = document.getElementById('pic8_selected');
+pic8.addEventListener('mouseenter', function () {
+    
+    if (name8_status == true){
+    var name = document.getElementById('name8_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic8.addEventListener('mouseleave', function () {
+    
+    if (name8_status == true){
+    var name = document.getElementById('name8_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic9 = document.getElementById('pic9_selected');
+pic9.addEventListener('mouseenter', function () {
+    
+    if (name9_status == true){
+    var name = document.getElementById('name9_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic9.addEventListener('mouseleave', function () {
+    
+    if (name9_status == true){
+    var name = document.getElementById('name9_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic10 = document.getElementById('pic10_selected');
+pic10.addEventListener('mouseenter', function () {
+    
+    if (name10_status == true){
+    var name = document.getElementById('name10_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic10.addEventListener('mouseleave', function () {
+    
+    if (name10_status == true){
+    var name = document.getElementById('name10_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic11 = document.getElementById('pic11_selected');
+pic11.addEventListener('mouseenter', function () {
+    
+    if (name11_status == true){
+    var name = document.getElementById('name11_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic11.addEventListener('mouseleave', function () {
+    
+    if (name11_status == true){
+    var name = document.getElementById('name11_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic12 = document.getElementById('pic12_selected');
+pic12.addEventListener('mouseenter', function () {
+    
+    if (name12_status == true){
+    var name = document.getElementById('name12_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic12.addEventListener('mouseleave', function () {
+    
+    if (name12_status == true){
+    var name = document.getElementById('name12_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic13 = document.getElementById('pic13_selected');
+pic13.addEventListener('mouseenter', function () {
+    
+    if (name13_status == true){
+    var name = document.getElementById('name13_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic13.addEventListener('mouseleave', function () {
+    
+    if (name13_status == true){
+    var name = document.getElementById('name13_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic14 = document.getElementById('pic14_selected');
+pic14.addEventListener('mouseenter', function () {
+    
+    if (name14_status == true){
+    var name = document.getElementById('name14_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic14.addEventListener('mouseleave', function () {
+    
+    if (name14_status == true){
+    var name = document.getElementById('name14_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic15 = document.getElementById('pic15_selected');
+pic15.addEventListener('mouseenter', function () {
+    
+    if (name15_status == true){
+    var name = document.getElementById('name15_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic15.addEventListener('mouseleave', function () {
+    
+    if (name15_status == true){
+    var name = document.getElementById('name15_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
+
+var pic16 = document.getElementById('pic16_selected');
+pic16.addEventListener('mouseenter', function () {
+    
+    if (name16_status == true){
+    var name = document.getElementById('name16_selected');
+    name.style.display = 'block'; // Affiche le nom
+    }
+});
+pic16.addEventListener('mouseleave', function () {
+    
+    if (name16_status == true){
+    var name = document.getElementById('name16_selected');
+    name.style.display = 'none'; // Affiche le nom
+    }
+});
 
 
 
