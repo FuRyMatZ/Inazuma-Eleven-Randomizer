@@ -192,6 +192,18 @@ const Team_directory = {
     "AM": "Alia Masters"
 };
 
+function preloadImages(categoryData) {
+    // Parcourir chaque élément dans la catégorie
+    for (var key in categoryData) {
+        if (categoryData.hasOwnProperty(key)) {
+            var imagePath = categoryData[key].Path;
+
+            // Créer un objet Image pour précharger l'image
+            var img_preload = new Image();
+            img.src = imagePath;
+        }
+    }
+}
 
 async function init() {
     if (combo2.value == "optionCoach" || combo2.value == "optionFOR" || combo.value == "optionIEBETAVR") {
@@ -1737,3 +1749,24 @@ closeBtn.onclick = function () {
 
 
 init();
+
+preloadImages(Formation);
+preloadImages(IE_1);
+preloadImages(IE_2);
+preloadImages(IE_3);
+preloadImages(IE_GO);
+preloadImages(IE_GOCS);
+preloadImages(IE_GOGALAXY);
+preloadImages(IE_ARES);
+preloadImages(IE_ORION);
+preloadImages(IE_BETAVR);
+preloadImages(IE_1_COACH);
+preloadImages(IE_2_COACH);
+preloadImages(IE_3_COACH);
+preloadImages(IE_GO_COACH);
+preloadImages(IE_GOCS_COACH);
+preloadImages(IE_GOGALAXY_COACH);
+preloadImages(IE_ARES_COACH);
+preloadImages(IE_ORION_COACH);
+preloadImages(IE_ALL);
+preloadImages(IE_ALL_COACH);
