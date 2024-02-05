@@ -8,6 +8,12 @@ body {
     align-items: center;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* Ajustez la taille de l'image en fonction de vos besoins */
+}
+
 }
 
 .separator {
