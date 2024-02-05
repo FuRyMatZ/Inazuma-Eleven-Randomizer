@@ -547,7 +547,6 @@ function shuffleObject(obj) {
 var startButton = document.getElementById("start-button");
 startButton.addEventListener("click", function () {
 
-
     var refresh_button = document.getElementById("refresh-button");
     refresh_button.disabled = true;
     startButton.disabled = true;
@@ -563,6 +562,14 @@ startButton.addEventListener("click", function () {
     buttonSelected3.classList.add("disabled-button");
     buttonSelected4.classList.add("disabled-button");
     buttonSelected5.classList.add("disabled-button");
+
+
+    buttonSelected1.style.display = 'none';
+    buttonSelected2.style.display = 'none';
+    buttonSelected3.style.display = 'none';
+    buttonSelected4.style.display = 'none';
+    buttonSelected5.style.display = 'none';
+
 
     combo.disabled = true;
     combo2.disabled = true;
@@ -676,22 +683,34 @@ startButton.addEventListener("click", function () {
         }
     };
 
+    if (Nb_item > 0){
     afficherImagesAvecIntervalle(shuffledArray, 0, TotalItems, Nb_item, team_template, Team_directory)
+    } else {
+        team_template.bloc1.image.src = "Resource/character-placeholder.png";
+
+        team_template.bloc1.TeamText.innerText = "";
+
+        team_template.bloc1.Name_Text.innerText = "";
+    }
 
     refresh_button.disabled = false;
-    startButton.disabled = false;
     buttonSelected1.disabled = false;
     buttonSelected2.disabled = false;
     buttonSelected3.disabled = false;
     buttonSelected4.disabled = false;
     buttonSelected5.disabled = false;
     refresh_button.classList.remove("disabled-button");
-    startButton.classList.remove("disabled-button");
     buttonSelected1.classList.remove("disabled-button");
     buttonSelected2.classList.remove("disabled-button");
     buttonSelected3.classList.remove("disabled-button");
     buttonSelected4.classList.remove("disabled-button");
     buttonSelected5.classList.remove("disabled-button");
+
+    buttonSelected1.style.display = 'block';
+    buttonSelected2.style.display = 'block';
+    buttonSelected3.style.display = 'block';
+    buttonSelected4.style.display = 'block';
+    buttonSelected5.style.display = 'block';
 
 });
 
@@ -709,6 +728,12 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
     buttonSelected3.classList.add("disabled-button");
     buttonSelected4.classList.add("disabled-button");
     buttonSelected5.classList.add("disabled-button");
+    buttonSelected1.style.display = 'none';
+    buttonSelected2.style.display = 'none';
+    buttonSelected3.style.display = 'none';
+    buttonSelected4.style.display = 'none';
+    buttonSelected5.style.display = 'none';
+
     if (index < TotalItems) {
         // Affiche l'image actuelle
         var image_path = shuffledArray[index % Nb_item].Path;
@@ -718,10 +743,27 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
 
         if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
             nbr_image_display = 3
+            if (Nb_item == 2){
+                nbr_image_display = 2
+            }
+            if (Nb_item == 1){
+                nbr_image_display = 1
+            }
         } else {
             nbr_image_display = 5
+            if (Nb_item == 4){
+                nbr_image_display = 4
+            }
+            if (Nb_item == 3){
+                nbr_image_display = 3
+            }
+            if (Nb_item == 2){
+                nbr_image_display = 2
+            }
+            if (Nb_item == 1){
+                nbr_image_display = 1
+            }
         }
-
 
         if (index % nbr_image_display == 0) {
             team_template.bloc1.image.src = image_path;
@@ -794,8 +836,26 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
             }
         };
 
-
-
+        if (Nb_item < 5){
+            team_template.bloc5.image.src = "Resource/character-placeholder.png";
+            team_template.bloc5.TeamText.innerText = "";
+            team_template.bloc5.Name_Text.innerText = "";
+        }
+        if (Nb_item < 4){
+            team_template.bloc4.image.src = "Resource/character-placeholder.png";
+            team_template.bloc4.TeamText.innerText = "";
+            team_template.bloc4.Name_Text.innerText = "";
+        }
+        if (Nb_item < 3){
+            team_template.bloc3.image.src = "Resource/character-placeholder.png";
+            team_template.bloc3.TeamText.innerText = "";
+            team_template.bloc3.Name_Text.innerText = "";
+        }
+        if (Nb_item < 2){
+            team_template.bloc2.image.src = "Resource/character-placeholder.png";
+            team_template.bloc2.TeamText.innerText = "";
+            team_template.bloc2.Name_Text.innerText = "";
+        }
 
         let delay_ms = 3500 / TotalItems
         // Attente de 100 ms avant de passer à l'image suivante
@@ -803,11 +863,45 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
             afficherImagesAvecIntervalle(shuffledArray, index + 1, TotalItems, Nb_item, team_template, Team_directory);
         }, delay_ms);
     } else {
-        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
-            nbr_image_display = 3
+        shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1]
+        if (nbr_image_display == 1) {
+            
+            team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc1.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length-1].Genre;
+                team_template.bloc1.Name_Text.innerText = name_genre;
+            }
+            if (combo2.value == "optionFOR") {
+                team_template.bloc1.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Placement;
+            } else {
+                team_template.bloc1.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Team];
+            }
+
+            team_template.bloc2.image.src = "Resource/character-placeholder.png";
+            team_template.bloc3.image.src = "Resource/character-placeholder.png";
+            team_template.bloc4.image.src = "Resource/character-placeholder.png";
+            team_template.bloc5.image.src = "Resource/character-placeholder.png";
+
+            team_template.bloc2.TeamText.innerText = "";
+            team_template.bloc3.TeamText.innerText = "";
+            team_template.bloc4.TeamText.innerText = "";
+            team_template.bloc5.TeamText.innerText = "";
+
+            team_template.bloc2.Name_Text.innerText = "";
+            team_template.bloc3.Name_Text.innerText = "";
+            team_template.bloc4.Name_Text.innerText = "";
+            team_template.bloc5.Name_Text.innerText = "";
+        } else if (nbr_image_display == 2) {
 
             team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
-            team_template.bloc1.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc1.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length-2].Genre;
+                team_template.bloc1.Name_Text.innerText = name_genre;
+            }
             if (combo2.value == "optionFOR") {
                 team_template.bloc1.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Placement;
             } else {
@@ -816,7 +910,53 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
 
 
             team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Path;
-            team_template.bloc2.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc2.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length-1].Genre;
+                team_template.bloc2.Name_Text.innerText = name_genre;
+            }
+            if (combo2.value == "optionFOR") {
+                team_template.bloc2.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Placement;
+            } else {
+                team_template.bloc2.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Team];
+            }
+            
+            team_template.bloc3.image.src = "Resource/character-placeholder.png";
+            team_template.bloc4.image.src = "Resource/character-placeholder.png";
+            team_template.bloc5.image.src = "Resource/character-placeholder.png";
+
+            team_template.bloc3.TeamText.innerText = "";
+            team_template.bloc4.TeamText.innerText = "";
+            team_template.bloc5.TeamText.innerText = "";
+
+            team_template.bloc3.Name_Text.innerText = "";
+            team_template.bloc4.Name_Text.innerText = "";
+            team_template.bloc5.Name_Text.innerText = "";
+
+        } else if(nbr_image_display == 3) {
+            
+            team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc1.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 3].Genre;
+                team_template.bloc1.Name_Text.innerText = name_genre;
+            }
+            if (combo2.value == "optionFOR") {
+                team_template.bloc1.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Placement;
+            } else {
+                team_template.bloc1.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Team];
+            }
+
+
+            team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Path;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc2.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 2].Genre;
+                team_template.bloc2.Name_Text.innerText = name_genre;
+            }
             if (combo2.value == "optionFOR") {
                 team_template.bloc2.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Placement;
             } else {
@@ -825,20 +965,61 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
 
 
             team_template.bloc3.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Path;
-            team_template.bloc3.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom;
+            if (combo2.value == "optionFOR" || combo2.value == "optionCoach") {
+                team_template.bloc3.Name_Text.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom;
+            } else {
+                var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom + ' - '+ shuffledArray[Object.keys(shuffledArray).length-1].Genre;
+                team_template.bloc3.Name_Text.innerText = name_genre;
+            }
             if (combo2.value == "optionFOR") {
                 team_template.bloc3.TeamText.innerText = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Placement;
             } else {
                 team_template.bloc3.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Team];
-            }
+            }        
+               
+            team_template.bloc4.image.src = "Resource/character-placeholder.png";
+            team_template.bloc5.image.src = "Resource/character-placeholder.png";
+            
+            team_template.bloc4.TeamText.innerText = "";
+            team_template.bloc5.TeamText.innerText = "";
 
+            team_template.bloc4.Name_Text.innerText = "";
+            team_template.bloc5.Name_Text.innerText = "";
 
-        } else {
-            nbr_image_display = 5
-
+        } else if(nbr_image_display == 4) {
+            
             team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
             team_template.bloc1.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Team];
             var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 4].Genre;
+            team_template.bloc1.Name_Text.innerText = name_genre;
+
+            team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Path;
+            team_template.bloc2.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Team];
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 3].Genre;
+            team_template.bloc2.Name_Text.innerText = name_genre;
+
+            team_template.bloc3.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Path;
+            team_template.bloc3.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Team];
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 2].Genre;
+            team_template.bloc3.Name_Text.innerText = name_genre;
+
+            team_template.bloc4.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Path;
+            team_template.bloc4.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Team];
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 1].Genre;
+            team_template.bloc4.Name_Text.innerText = name_genre;
+            
+            team_template.bloc5.image.src = "Resource/character-placeholder.png";
+            
+            team_template.bloc5.TeamText.innerText = "";
+
+            team_template.bloc5.Name_Text.innerText = "";
+
+        } else if(nbr_image_display == 5) {
+            
+
+            team_template.bloc1.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Path;
+            team_template.bloc1.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Team];
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 5].Genre;
             team_template.bloc1.Name_Text.innerText = name_genre;
 
             team_template.bloc2.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 1].Path;
@@ -848,40 +1029,47 @@ function afficherImagesAvecIntervalle(shuffledArray, index, TotalItems, Nb_item,
 
             team_template.bloc3.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Path;
             team_template.bloc3.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Team];
-            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 4].Genre;
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 2].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 3].Genre;
             team_template.bloc3.Name_Text.innerText = name_genre;
 
 
 
             team_template.bloc4.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Path;
             team_template.bloc4.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Team];
-            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 4].Genre;
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 3].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 2].Genre;
             team_template.bloc4.Name_Text.innerText = name_genre;
 
 
             team_template.bloc5.image.src = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 4].Path;
             team_template.bloc5.TeamText.innerText = Team_directory[shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 4].Team];
-            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 4].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 4].Genre;
+            var name_genre = shuffledArray[Object.keys(shuffledArray).length - nbr_image_display + 4].Nom + ' - ' + shuffledArray[Object.keys(shuffledArray).length - 1].Genre;
             team_template.bloc5.Name_Text.innerText = name_genre;
 
         }
-        startButton.disabled = false;
         buttonSelected1.disabled = false;
         buttonSelected2.disabled = false;
         buttonSelected3.disabled = false;
         buttonSelected4.disabled = false;
         buttonSelected5.disabled = false;
-        startButton.classList.remove("disabled-button");
         buttonSelected1.classList.remove("disabled-button");
         buttonSelected2.classList.remove("disabled-button");
         buttonSelected3.classList.remove("disabled-button");
         buttonSelected4.classList.remove("disabled-button");
         buttonSelected5.classList.remove("disabled-button");
+        buttonSelected1.style.display = 'block';
+        buttonSelected2.style.display = 'block';
+        buttonSelected3.style.display = 'block';
+        buttonSelected4.style.display = 'block';
+        buttonSelected5.style.display = 'block';
     }
 }
 
 var buttonSelected1 = document.getElementById("buttonSelected1");
 buttonSelected1.addEventListener("click", function () {
+
+    startButton.disabled = false;
+    startButton.classList.remove("disabled-button");
+
     combo.disabled = false;
     combo2.disabled = false;
 
@@ -895,6 +1083,16 @@ buttonSelected1.addEventListener("click", function () {
     } else {
         variableOffset = 0
     }
+
+    if (Object.keys(shuffledArray).length == 4){
+        variableOffset = 1
+    } else if (Object.keys(shuffledArray).length == 3){
+        variableOffset = 2
+    } else if (Object.keys(shuffledArray).length == 2){
+        variableOffset = 3
+    } else if (Object.keys(shuffledArray).length == 1){
+        variableOffset = 4
+    } 
     
     
     switch (combo2.value) {
@@ -1019,6 +1217,10 @@ buttonSelected2.addEventListener("click", function () {
     combo.disabled = false;
     combo2.disabled = false;
 
+    startButton.disabled = false;
+    startButton.classList.remove("disabled-button");
+    
+
     console.log("selectedButton2")
     image_selected = document.getElementById("IMG_Charcter_2");
     
@@ -1029,6 +1231,24 @@ buttonSelected2.addEventListener("click", function () {
         variableOffset = 0
     }
     
+    if (Object.keys(shuffledArray).length == 2){
+        variableOffset = 3
+    } 
+
+    if (Object.keys(shuffledArray).length == 4){
+        variableOffset = 1
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+            variableOffset += 1
+        } 
+    } else if (Object.keys(shuffledArray).length == 3){
+        variableOffset = 2
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        } 
+    } else if (Object.keys(shuffledArray).length == 2){
+        variableOffset = 3
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+        } 
+    }
     //    delete shuffledArray[Object.keys(shuffledArray).length-5 + variableOffset]
     
     
@@ -1154,6 +1374,10 @@ buttonSelected3.addEventListener("click", function () {
     combo.disabled = false;
     combo2.disabled = false;
 
+    startButton.disabled = false;
+    startButton.classList.remove("disabled-button");
+    
+
     console.log("selectedButton3")
     image_selected = document.getElementById("IMG_Charcter_3");
     
@@ -1162,6 +1386,15 @@ buttonSelected3.addEventListener("click", function () {
         variableOffset = 2
     } else {
         variableOffset = 0
+    }
+
+    if (Object.keys(shuffledArray).length == 4){
+        variableOffset = 1
+        if (combo2.value == "optionFOR" || combo2.value == "optionCoach" || combo.value == "optionIEBETAVR") {
+            variableOffset += 1
+        } 
+    } else if (Object.keys(shuffledArray).length == 3){
+        variableOffset = 2
     }
     
     switch (combo2.value) {
@@ -1284,14 +1517,22 @@ buttonSelected4.addEventListener("click", function () {
     combo.disabled = false;
     combo2.disabled = false;
 
+    startButton.disabled = false;
+    startButton.classList.remove("disabled-button");
+
     console.log("selectedButton4")
     image_selected = document.getElementById("IMG_Charcter_4");
     
+    let variableOffset = 0
+    if (Object.keys(shuffledArray).length == 4){
+        variableOffset = 1
+    }
+
     switch (combo2.value) {
         case "optionFOR":
             
             for (let object_pointeur in CurrentList.Formation) {
-                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.Formation[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Formation[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.Formation[object_pointeur].Nom)
                     delete CurrentList.Formation[object_pointeur]
@@ -1303,7 +1544,7 @@ buttonSelected4.addEventListener("click", function () {
         case "optionCoach":
 
             for (let object_pointeur in CurrentList.Coach) {
-                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.Coach[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.Coach[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.Coach[object_pointeur].Nom)
                     delete CurrentList.Coach[object_pointeur]
@@ -1314,7 +1555,7 @@ buttonSelected4.addEventListener("click", function () {
         case "optionGK":
 
             for (let object_pointeur in CurrentList.GK) {
-                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.GK[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.GK[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.GK[object_pointeur].Nom)
                     delete CurrentList.GK[object_pointeur]
@@ -1325,7 +1566,7 @@ buttonSelected4.addEventListener("click", function () {
         case "optionDF":
 
             for (let object_pointeur in CurrentList.DF) {
-                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.DF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.DF[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.DF[object_pointeur].Nom)
                     delete CurrentList.DF[object_pointeur]
@@ -1336,7 +1577,7 @@ buttonSelected4.addEventListener("click", function () {
         case "optionMF":
 
             for (let object_pointeur in CurrentList.MF) {
-                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.MF[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.MF[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.MF[object_pointeur].Nom)
                     delete CurrentList.MF[object_pointeur]
@@ -1347,7 +1588,7 @@ buttonSelected4.addEventListener("click", function () {
         case "optionFW":
 
             for (let object_pointeur in CurrentList.FW) {
-                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2]) {
+                if (CurrentList.FW[object_pointeur] == shuffledArray[Object.keys(shuffledArray).length - 2 + variableOffset]) {
                     console.log("item deleted :", CurrentList.FW[object_pointeur])
                     selectedCharacter(image_selected, CurrentList.FW[object_pointeur].Nom)
                     delete CurrentList.FW[object_pointeur]
@@ -1406,6 +1647,9 @@ var buttonSelected5 = document.getElementById("buttonSelected5");
 buttonSelected5.addEventListener("click", function () {
     combo.disabled = false;
     combo2.disabled = false;
+
+    startButton.disabled = false;
+    startButton.classList.remove("disabled-button");
 
     console.log("selectedButton5")
     image_selected = document.getElementById("IMG_Charcter_5");
