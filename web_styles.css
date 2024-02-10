@@ -4,39 +4,19 @@ body {
     height: 100vh;
     background: url('Resource/background2.png') center/cover;
     display: flex;
-    flex-direction: row; /* Change the direction to row */
-    align-items: flex-start; /* Align items to the top */
+    flex-direction: column;
+    align-items: center;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
-    align-items: center;
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover; /* Ajustez la taille de l'image en fonction de vos besoins */
 }
 
-/* Define styles for left side content */
-.left-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    background-color: rgba(242, 242, 242, 0.5);
-}
-
-/* Define styles for right side content */
-.right-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    background-color: rgba(242, 242, 242, 0.5);
-}
-
 .separator {
-    width: 80%; /* Adjust the width to your preference */
-    height: 2px; /* Occupy full height */
+    width: 100%;
+    height: 2px;
     background-color: #000000;
     margin: 5px 0;
     /* Combine les propriétés margin-top et margin-bottom */
@@ -44,7 +24,6 @@ body {
 
 #label-title {
     text-align: center;
-    margin-top: 20px; /* Adjust top margin */
 }
 
 #label-title span {
@@ -166,15 +145,8 @@ button.select-button:active,
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(8, 12%); /* Each image takes up 12% of the width */
+    grid-template-columns: repeat(8, 2fr);
     grid-gap: 5px;
-    justify-content: center; /* Center images horizontally */
-}
-
-.character-grid img {
-    width: 100%; /* Take up full width of the grid cell */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure images don't exceed the grid cell width */
 }
 
 .set {
@@ -203,13 +175,14 @@ button.select-button:active,
 }
 
 .custom-elements {
+    margin-top: -15px;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-/* Adjust styles for select and option elements */
-#combo-box1, #combo-box2, select {
+#combo-box1,
+#combo-box2,
+select {
     min-width: 560px;
     min-height: 30px;
     border-radius: 7px;
@@ -290,13 +263,4 @@ select option:checked {
 
 .Pop-patreon-btn:hover {
     background-color: #992d19;
-}
-
-@media screen and (max-width: 768px) {
-    body {
-        display: block;
-    }
-    .left-content, .right-content {
-        width: 100%; /* Make both sections take up full width */
-    }
 }

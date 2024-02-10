@@ -3,22 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
     <title>Inazuma Eleven Randomizer</title>
     <link rel="stylesheet" href="web_styles.css">
 </head>
 
 <body>
     <div id="pop-up" class="pop-up">
-      <div class="pop-up-content">
-        <span class="close">&times;</span>
-        <h2>Welcome to Early Access!</h2>
-        <p>Thank you for trying out our early access website. This is the first version intended for testing and gathering feedback to improve the tool. If you encounter any bugs or issues, please don't hesitate to let us know on Discord.</p>
-        <a href="https://discord.gg/SD9KK3GpVm" class="Pop-discord-btn" target="_blank">Join the Discord server</a>
-        <a href="https://www.patreon.com/ownstudio" class="Pop-patreon-btn" target="_blank">Patreon</a>
-      </div>
-    </div> 
-    <div class="left-content">
+        <div class="pop-up-content">
+            <span class="close">&times;</span>
+            <h2>Welcome to Early Access!</h2>
+            <p>Thank you for trying out our early access website. This is the first version intended for testing and
+                gathering feedback to improve the tool. If you encounter any bugs or issues, please don't hesitate to
+                let us know on Discord.</p>
+            <a href="https://discord.gg/SD9KK3GpVm" class="Pop-discord-btn" target="_blank">Join the Discord server</a>
+            <a href="https://www.patreon.com/ownstudio" class="Pop-patreon-btn" target="_blank">Patreon</a>
+        </div>
+    </div>
+
     <div class="separator"></div>
 
     <p id="label-title">
@@ -106,8 +108,7 @@
     </div>
 
     <div class="separator"></div>
-</div>
-<div class="right-content">
+
     <p id="label-your-team">
         <span>Your Team</span>
     </p>
@@ -120,37 +121,102 @@
             <!-- 8x2 grid de character-placeholder.png -->
             <!-- L'image character-placeholder.png est répétée 16 fois pour créer une grille 8x2 -->
             <!-- Vous pouvez ajuster le chemin et le style des images en fonction de vos besoins -->
-            <img id = "pic1_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic2_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic3_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic4_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic5_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic6_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic7_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic8_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic9_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic10_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic11_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic12_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic13_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic14_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic15_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-            <img id = "pic16_selected" src="Resource/character-placeholder.png" alt="Character Image" >
-        </div>
-        <img id = "Your_Team_Coach" src="Resource/character-placeholder.png" alt="Character Image" style="max-width: 90px; max-height: 90px;">
-
-        <div class="separator"></div>
-        <footer>
-            <div class="credits" style="color: black;">
-                <p>Copyright © 2024. Made by <a href="https://twitter.com/FuRyMatZ">FuRyMatZ</a>. All rights reserved. Powered
-                    by <a href="https://twitter.com/FuRyMatZ">Own Studio</a></Own>
-                </p>
+            <div class="set">
+                <img id="pic1_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name1_selected">Name</span>
             </div>
-        </footer>
+            <div class="set">
+                <img id="pic2_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name2_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic3_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name3_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic4_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name4_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic5_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name5_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic6_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name6_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic7_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name7_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic8_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name8_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic9_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name9_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic10_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name10_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic11_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name11_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic12_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name12_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic13_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name13_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic14_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name14_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic15_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name15_selected">Name</span>
+            </div>
+            <div class="set">
+                <img id="pic16_selected" src="Resource/character-placeholder.png" alt="Character Image"
+                    style="max-width: 50px; max-height: 50px;">
+                <span class="grid-name" id="name16_selected">Name</span>
+            </div>
+        </div>
+
+        <img id="Your_Team_Coach" src="Resource/character-placeholder.png" alt="Character Image"
+            style="max-width: 90px; max-height: 90px;">
     </div>
-</div>
+
+    <div class="separator"></div>
 
     <script src="web_script.js"></script>
 </body>
+<footer>
+    <div class="credits" style="color: black;">
+        <p>Copyright © 2024. Made by <a href="https://twitter.com/FuRyMatZ">FuRyMatZ</a>. All rights reserved. Powered
+            by <a href="https://twitter.com/FuRyMatZ">Own Studio</a></Own>
+        </p>
+    </div>
+</footer>
 
 </html>
