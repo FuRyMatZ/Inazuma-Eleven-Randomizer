@@ -165,8 +165,12 @@ const Team_directory = {
     "RdD": "Roses du Désespoir",
     "ES": "Enfants Sauvages",
     "TN": "Traqueurs Nocturnes",
+    "RMGOCS": "Raimon GO CS",
+    "CTR": "Chevaliers de la Table Ronde",
+    "ED3": "El Dorado Team 03",
 
     "IN": "Inazuma National",
+    "RJ": "Rébellion Japon",
     "DFGO": "Dragons de Feu (GO)",
     "BWGO": "Big Waves (GO)",
     "SBA": "Sabres Arides",

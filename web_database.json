@@ -7684,7 +7684,17 @@
             "Genre": "\u2642",
             "Poste": "MF",
             "Path": ".\\Resource\\Joueurs\\Inazuma Eleven GO\\(VL) (MF) (\u2642) Zaphod Riker.png"
+        },
+        "326": {
+            "Nom": "Fletch Blitzen",
+            "Team": "RM R",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\Inazuma Eleven GO\\(RM R) (FW) (\u2642) Fletch Blitzen.png"
         }
+
+
+
     },
     "IE_GOCS": {
         "0": {
@@ -13871,51 +13881,46 @@
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(ED3) Blaze.png"
         },
         "3": {
-            "Nom": "Patriarche",
-            "Team": "EN",
-            "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(EN) Patriarche.png"
-        },
-        "4": {
             "Nom": "Schemer Guilde",
             "Team": "EX",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(EX) Schemer Guilde.png"
         },
-        "5": {
+        "4": {
             "Nom": "Argos",
             "Team": "PO",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(PO) Argos.png"
         },
-        "6": {
+        "5": {
             "Nom": "Zanark",
             "Team": "PO3",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(PO3) Zanark.png"
         },
-        "7": {
+        "6": {
             "Nom": "Charles VII",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Charles VII.png"
         },
-        "8": {
+        "7": {
             "Nom": "Kinoshita Toukichirou",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Kinoshita Toukichirou.png"
         },
-        "9": {
+        "8": {
             "Nom": "Liu Bei",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Liu Bei.png"
         },
-        "10": {
+        "9": {
             "Nom": "Nakaoka Shintarou",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Nakaoka Shintarou.png"
         },
-        "11": {
+        "10": {
             "Nom": "Pa",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Pa.png"
         },
-        "12": {
+        "11": {
             "Nom": "Wonderbar",
             "Team": "RMGOCS",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Chrono Stones\\(RMGOCS) Wonderbar.png"
@@ -13961,7 +13966,7 @@
             "Nom": "Astero Black",
             "Team": "OT",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Galaxy\\(OT) Astero Black.png"
-        },
+        },        
         "8": {
             "Nom": "Caleb Stonewall",
             "Team": "RJ",
@@ -13976,6 +13981,11 @@
             "Nom": "Rasiree Saranyu",
             "Team": "TT",
             "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Galaxy\\(TT) Rasiree Saranyu.png"
+        },
+        "11": {
+            "Nom": "Patriarche",
+            "Team": "EN",
+            "Path": ".\\Resource\\Coach\\Inazuma Eleven GO Galaxy\\(IN) Patriarche.png"
         }
     },
     "IE_ARES_COACH": {
@@ -27079,6 +27089,13 @@
             "Genre": "\u2642",
             "Poste": "MF",
             "Path": ".\\Resource\\Joueurs\\All\\(ZS) (MF) (\u2642) M\u00e9duse.png"
+        },
+        "1851": {
+            "Nom": "Fletch Blitzen",
+            "Team": "RM R",
+            "Genre": "\u2642",
+            "Poste": "FW",
+            "Path": ".\\Resource\\Joueurs\\All\\(RM R) (FW) (\u2642) Fletch Blitzen.png"
         }
     },
     "IE_ALL_COACH": {
@@ -27210,7 +27227,7 @@
         "25": {
             "Nom": "Patriarche",
             "Team": "EN",
-            "Path": ".\\Resource\\Coach\\All\\(EN) Patriarche.png"
+            "Path": ".\\Resource\\Coach\\All\\(IN) Patriarche.png"
         },
         "26": {
             "Nom": "Adam Sanchi",
