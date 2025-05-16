@@ -27,9 +27,11 @@ body {
 }
 
 #label-title span {
-    font-size: 20pt;
-    font-weight: 700;
-    margin-bottom: 5px;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    color: #fff;
 }
 
 #content {
@@ -46,6 +48,22 @@ body {
     align-items: center;
 }
 
+#selection select {
+    font-size: 15px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: rgb(40, 42, 54);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+#selection select:hover {
+    background-color: rgb(55, 57, 70);
+}
+
 select,
 button {
     margin-top: 5px;
@@ -59,10 +77,16 @@ button {
 }
 
 .team-template {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+.team-template:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
 }
 
 img {
@@ -87,9 +111,24 @@ img {
     min-height: 45px;
 }
 
+.select-button,
+#start-button {
+    font-family: inherit;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, rgb(34, 36, 44), rgb(45, 47, 55));
+    border: 3px solid rgb(60, 63, 75);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+
 .select-button:hover,
 #start-buutton:hover {
-    border: 3px solid rgb(118, 118, 118);
+    transform: scale(1.05);
+    border-color: #fff;
+    background: rgb(60, 63, 75);
 }
 
 button#start-buutton:active,
@@ -101,7 +140,8 @@ button.select-button:active,
 
 #double-button {
     display: flex;
-    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 #refresh-button {
@@ -144,9 +184,13 @@ button.select-button:active,
 }
 
 .character-grid {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
     display: grid;
-    grid-template-columns: repeat(8, 2fr);
-    grid-gap: 5px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-top: 15px;
 }
 
 .set {
@@ -158,6 +202,16 @@ button.select-button:active,
     /* Aligne les éléments en haut de la boîte flex */
     color: #000;
     padding-bottom: 0px; 
+}
+
+.set img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: transform 0.2s ease;
+}
+.set img:hover {
+    transform: scale(1.1);
+    border-color: #00eaff;
 }
 
 .grid-name {
